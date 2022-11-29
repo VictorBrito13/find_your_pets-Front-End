@@ -1,0 +1,94 @@
+:root{
+    --ft-cascadia-code: 'cascadia-code'
+}
+
+.component-container{
+    background-image: linear-gradient(to right, #FFD4DB, #D3B5E5);
+    height: 100vh;
+}
+.component-title{
+    color: #05445E;
+}
+.chat-container{
+    display: grid;
+    grid-template-rows: 80% 20%;
+    background-image: linear-gradient(to right, #3CACAE, #C8F4F9);
+    width: 90%;
+    margin: 10px auto;
+    height: 85%;
+    border-radius: 15px;
+}
+.chat{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.chat::-webkit-scrollbar{
+    width: 5px;
+    background-color: #160404;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.chat::-webkit-scrollbar-thumb{
+    background-color: rgb(255, 190, 190);
+}
+.me, .not-me{
+    font-size: 1rem;
+    margin: 10px;
+    padding: 10px;
+    font-weight: normal;
+    width: fit-content;
+}
+.me{
+    background-color: #3CACAE;
+    border-radius: 20px 20px 0px 20px;
+    align-self: flex-end;
+}
+.not-me{
+    background-color: #C8F4F9;
+    align-self: flex-start;
+    border-radius: 20px 20px 20px 0px;
+}
+form{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    justify-content: center;
+    align-items: center;
+}
+.msg{
+    resize: none;
+    justify-self: center;
+    width: 95%;
+    height: 80%;
+    background-color: #FFD4DB;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: .9rem;
+    font-family: var(--ft-cascadia-code);
+    transition: background-color .3s linear, color .3s linear;
+}
+.msg:focus{
+    transition: background-color .3s linear, color .3s linear;
+    background-color: #05445E;
+    color: #fff;
+}.msg:focus::placeholder{
+    color: #fff;
+}
+.send-msg{
+    font-size: 1.1rem;
+    background-image: linear-gradient(to right, #EEB5EB, #C26DBC);
+    background-size: 200%;
+    background-position: 100%;
+    color: #C8F4F9;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    transition: color .3s linear, background-position .3s linear;
+    cursor: pointer;
+}
+.send-msg:hover{
+    transition: color .3s linear, background-position .3s linear;
+    background-position: 0%;
+    color: #000;
+}

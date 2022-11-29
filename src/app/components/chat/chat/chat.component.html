@@ -1,0 +1,15 @@
+<div class="component-container">
+    <h1 class="component-title">Username</h1>
+    <div class="chat-container">
+        <div class="chat">
+            <p *ngFor="let msg of msgs" [ngClass]="msg.sender === sender_name ? 'me' : 'not-me' ">
+                <span>{{msg.sender}}</span>
+                {{msg.msg}}
+            </p>
+        </div>
+        <form>
+            <textarea class="msg" placeholder="type something" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send" class="send-msg">
+        </form>
+    </div>
+</div>

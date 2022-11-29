@@ -1,0 +1,39 @@
+<div class="component-container">
+    <h1 class="component-title">Sign Up</h1>
+
+    <div class="form-container">
+        <form>
+            <span class="first-name-area">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name">
+            </span>
+            <span class="last-name-area">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name">
+            </span>
+            <span class="passwd-area">
+                <label for="passwd">Password</label>
+                <input type="password" id="passwd">
+            </span>
+            <span class="avatar-area">
+                <label for="avatar">Avatar</label>
+                <input type="file" id="avatar">
+            </span>
+            <span class="birth-area">
+                <label for="birth">Birth</label>
+                <input type="date" id="birth">
+            </span>
+            <span class="cellphone-area">
+                <label for="cellphone">Cellphone</label>
+                <input type="tel" id="cellphone">
+            </span>
+            <span class="email-area">
+                <label for="email">Email</label>
+                <input type="email" id="email">
+            </span>
+            <input type="submit" value="Create Account" class="send-area send">
+
+            <p class="log-in-link-p">already an account? <a class="log-in-link" [routerLink]="['/users/log-in']">Log in here</a></p>
+        </form>
+    </div>
+</div>

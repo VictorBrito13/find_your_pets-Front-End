@@ -1,0 +1,44 @@
+.component-container{
+    background-image: linear-gradient(to right, #EEB5EB, #C8F4F9);
+    background-attachment: fixed;
+    height: 100vh;
+}
+.component-title{
+    color: #05445E;
+}
+.form-container{
+    width: 60%;
+    height: 70%;
+}
+label, input, p, .send{
+    color: #5E376D;
+}
+#email, #passwd{
+    background-color: #F6E6E8;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #C26DBC;
+    position: relative;
+    transition: background-color .3s linear;
+}
+#email:focus, #passwd:focus{
+    transition: background-color .3s linear;
+    background-color: #C8F4F9;
+}
+.send{
+    transition: background-position .3s linear;
+}
+.send:hover{
+    transition: background-position .3s linear;
+    background-position: 100%;
+}
+.send:active{
+    transform: scale(.9, .9);
+}
+p{
+    font-size: 1.1rem;
+}
+.sign-up-link{
+    color: #3CACAE;
+}

@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'segoe-print';
+    src: url('./assets/fonts/segoepr.ttf') format(TrueType);
+}
+@font-face {
+    font-family: 'cascadia-code';
+    src: url('./assets/fonts/CascadiaCode-Regular-VTT.ttf') format(TrueType);
+}
+
+:root{
+    --ft-cascadia-code: 'cascadia-code'
+}
+
+body{
+    padding: 0%;
+    margin: 0%;
+}
+ul{
+    list-style: none;
+}
+
+.component-title{
+    font-size: 2.5rem;
+    font-family: 'segoe-print';
+    margin: 0%;
+    text-align: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    position: relative;
+    z-index: 0;
+}
+.form-container::before{
+    content: '';
+    position: absolute;
+    background-color: #ffffff80;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    border-radius: 15px;
+}
+label, input, p, .send{
+    display: block;
+    font-family: var(--ft-cascadia-code);
+    font-size: 1.3rem;
+    width: 75%;
+    font-weight: bold;
+    margin: 15px auto;
+}
+.send{
+    font-size: 1.1rem;
+    background-size: 150%;
+    background-image: linear-gradient(to right, #EEB5EB, #C8F4F9);
+    color: #C26DBC;
+    border: 0px;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+.send:active{
+    transform: scale(.9, .9);
+}

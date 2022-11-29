@@ -1,0 +1,72 @@
+.component-container{
+    background-image: linear-gradient(to right, #EEB5EB, #C8F4F9);
+    background-attachment: fixed;
+    height: 100vh;
+}
+.component-title{
+    color: #05445E;
+}
+.form-container{
+    width: 90%;
+    height: 80%;
+}
+form{
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(5, 20%);
+    grid-template-areas:
+                        "first-name avatar birth"
+                        "last-name . cellphone"
+                        "passwd . email"
+                        ". send ."
+                        "log-in-link log-in-link log-in-link";
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+label, input, p, .send{
+    color: #5E376D;
+}
+input:not(input[type="submit"]){
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F6E6E8;
+    border: 1px solid #5E376D;
+}
+.first-name-area{
+    grid-area: first-name;
+}
+.last-name-area{
+    grid-area: last-name;
+}
+.passwd-area{
+    grid-area: passwd;
+}
+.avatar-area{
+    grid-area: avatar;
+}
+.birth-area{
+    grid-area: birth;
+}
+.cellphone-area{
+    grid-area: cellphone;
+}
+.email-area{
+    grid-area: email;
+}
+.send-area{
+    grid-area: send;
+    transition: background-position .3s linear;
+}
+.send-area:hover{
+    transition: background-position .3s linear;
+    background-position: 100%;
+}
+.log-in-link-p{
+    grid-area: log-in-link;
+    text-align: center;
+}
+.log-in-link{
+    color: #3CACAE;
+}
