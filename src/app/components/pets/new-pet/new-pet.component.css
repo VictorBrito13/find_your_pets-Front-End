@@ -1,0 +1,141 @@
+.component-container{
+    background-image: linear-gradient(to bottom right, #05445E, #189AB4);
+    background-attachment: fixed;
+    color: #FFD4DB;
+    padding: 10px;
+}
+.form-container{
+    margin-top: 10px;
+    width: 90%;
+}
+form{
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(4, 25%);
+    grid-template-areas:
+                        "name contact breed"
+                        "age . reward"
+                        "description pet-type image"
+                        ". send .";
+}
+label{
+    color: #05445E;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color .3s linear;
+}
+label:hover{
+    transition: color .3s linear;
+    color: #027aad;
+}
+input, textarea{
+    border: 0px;
+}
+input:not(input[type="submit"]), textarea{
+    background-color: #BBE7FE;
+    border-radius: 15px;
+    font-size: 1rem;
+    padding: 10px;
+    font-weight: normal;
+    transition: background-color .3s linear;
+    align-self: center;
+}
+input:not(input[type="submit"]):focus, textarea:focus{
+    transition: background-color .3s linear;
+    background-color: #79cbf7;
+}
+textarea{
+    width: 95%;
+    height: 50%;
+    font-family: 'cascadia-code';
+    resize: none;
+}
+.name-area{
+    grid-area: name;
+}
+.age-area{
+    grid-area: age;
+}
+.description-area{
+    grid-area: description;
+}
+.contacts{
+    overflow-y: scroll;
+}
+.contacts::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 5px;
+    background-color: #f599f0;
+}
+.contacts::-webkit-scrollbar-thumb{
+    background-color: #ff00f2;
+}
+.contact-area{
+    grid-area: contact;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: repeat(4, 50%);
+    grid-template-areas:
+                        "label label"
+                        "email add-contact"
+                        "cellphone add-contact"
+                        "contacts contacts";
+}
+.contact-label-area{
+    grid-area: label;
+}
+.contact-email-area{
+    grid-area: email;
+}
+.contact-cellphone-area{
+    grid-area: cellphone;
+}
+.btn-add-contact{
+    grid-area: add-contact;
+    align-self: center;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'cascadia-code';
+    color: #5E376D;
+    background-color: #EEB5EB;
+    cursor: pointer;
+    transition: background-color .3s linear, color .3s linear;
+}
+.btn-add-contact:hover{
+    transition: background-color .3s linear, color .3s linear;
+    background-color: #5E376D;
+    color: #EEB5EB;
+}
+.contacts{
+    grid-area: contacts;
+}
+.pet-type-area{
+    grid-area: pet-type;
+}
+.breed-area{
+    grid-area: breed;
+}
+.reward-area{
+    grid-area: reward;
+}
+.image-area{
+    grid-area: image
+}
+.send-area{
+    grid-area: send;
+    align-self: center;
+    background-image: linear-gradient(to right, #EEB5EB, #C8F4F9);
+    background-size: 200%;
+    font-weight: normal;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-position .3s linear;
+    background-position: 0%;
+}
+.send-area:hover{
+    transition: background-position .3s linear;
+    background-position: 100%;
+}

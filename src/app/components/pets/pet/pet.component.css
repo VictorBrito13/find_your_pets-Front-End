@@ -1,0 +1,55 @@
+ul{
+    padding: 0px;
+    margin: 0px;
+}
+.component-container{
+    background-image: linear-gradient(to right bottom, #05445E, #189AB4);
+    height: 100vh;
+}
+.component-title{
+    color: #FFD4DB;
+}
+.pet-container{
+    height: 85%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60% 40%;
+    row-gap: 10px;
+    column-gap: 10px;
+    padding: 10px;
+}
+figure{
+    display: flex;
+    margin: 0;
+    height: 100%; /*310px*/
+    width: 100%; /*500px*/
+}
+.pet-img{
+    height: 100%;
+    width: 100%;
+}
+.pet-info-container{
+    width: 50%;
+}
+.pet-info{
+    color: #C8F4F9;
+    font-size: 1rem;
+    font-family: 'cascadia-code';
+}
+.pet-info span{
+    color: #C26DBC;
+}
+.pet-info-contacts{
+    list-style: inside;
+}
+.pet-description{
+    font-size: 1rem;
+    font-weight: normal;
+    grid-area: 2/1/2/3;
+    height: fit-content;
+    color: #EEB5EB;
+}
+.pet-description::first-letter{
+    text-transform: uppercase;
+}

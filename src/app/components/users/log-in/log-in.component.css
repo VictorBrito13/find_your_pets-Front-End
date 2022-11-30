@@ -10,8 +10,16 @@
     width: 60%;
     height: 70%;
 }
+label{
+    cursor: pointer;
+    transition: color .3s linear;
+}
 label, input, p, .send{
     color: #5E376D;
+}
+label:hover{
+    transition: color .3s linear;
+    color: #5b1875;
 }
 #email, #passwd{
     background-color: #F6E6E8;

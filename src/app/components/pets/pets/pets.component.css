@@ -1,0 +1,72 @@
+.component-container{
+    background-image: linear-gradient(to right bottom, #05445E, #189AB4);
+    min-height: 100vh;
+}
+.component-title{
+    color: #FFD4DB;
+}
+.pets-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    column-gap: 20px;
+    row-gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+.pet{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 50% 50%;
+    row-gap: 20px;
+    background-image: linear-gradient(to right bottom, #D3B5E5, #BBE7FE);
+    width: 95%;
+    height: 400px;
+    overflow: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+.pet::-webkit-scrollbar{
+    width: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.pet::-webkit-scrollbar-thumb{
+    background-color: #000;
+    border-radius: 5px;
+}
+figure{
+    margin: 0px;
+    width: 90%;
+    height: 100%;
+}
+ul{
+    padding: 0px;
+}
+.pet-img{
+    outline: 1px solid;
+    width: 100%;
+    height: 100%;
+}
+.owner-contact{
+    line-height: 40px;
+    font-family: 'cascadia-code';
+    font-size: .9rem;
+    font-weight: bold;
+}
+.owner-contact .name{
+    color: #C0005C;
+}
+.owner-contact .age{
+    color: #0C060B;
+}
+.owner-contact .owner{
+    color: #05445E;
+}
+.pet-description{
+    grid-area: 2 / 1 / 2 / 3;
+    font-size: .9rem;
+    font-weight: normal;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}

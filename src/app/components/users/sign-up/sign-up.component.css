@@ -24,8 +24,16 @@ form{
     align-items: center;
     width: 100%;
 }
+label{
+    cursor: pointer;
+    transition: .3s linear;
+}
 label, input, p, .send{
     color: #5E376D;
+}
+label:hover{
+    transition: .3s linear;
+    color: #5b1875;
 }
 input:not(input[type="submit"]){
     font-size: 1rem;

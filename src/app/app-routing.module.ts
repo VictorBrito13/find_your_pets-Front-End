@@ -23,6 +23,23 @@ const routes: Routes = [
         loadChildren: () => import('./modules/chat/chat.module').then(m => m.ChatModule)
       }
     ],
+  },
+  {
+    path:'pets',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./modules/pets/pets/pets.module').then(m => m.PetsModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./modules/pets/pet/pet.module').then(m => m.PetModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./modules/pets/new-pet/new-pet.module').then(m => m.NewPetModule)
+      }
+    ]
   }
 ];
 
