@@ -1,0 +1,40 @@
+<nav class="menu-container">
+    <ul class="menu">
+        <li>
+            <a
+            [routerLink]="['/pets/all-pets']"
+            [routerLinkActive]="['active']"
+            class="menu-item">
+                Pets
+            </a>
+        </li>
+        <li>
+            <a
+            [routerLink]="['/pets/new-pet']"
+            [routerLinkActive]="['active']"
+            class="menu-item">
+                New Pet
+            </a>
+        </li>
+        <li>
+            <a
+            [routerLink]="['/users/chat']"
+            [routerLinkActive]="['active']"
+            class="menu-item">
+                Chat
+            </a>
+        </li>
+        <li>
+            <a
+            [routerLink]="['/users/log-in']"
+            class="menu-item">
+                Log In
+            </a>
+        </li>
+        <li>
+            <button class="menu-item log-out">
+                Log Out
+            </button>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,20 @@
+.component-container{
+    position: fixed;
+    top: 0px;
+    left: 20%;
+    background-color: #F5F5E9;
+    font-family: 'cascadia-code';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+h1{
+    font-size: 3rem;
+    color: #873F49;
+}
+a{
+    font-size: 2rem;
+    color: #0B1C47;
+}

@@ -15,13 +15,13 @@
     background-image: linear-gradient(to right, #3CACAE, #C8F4F9);
     width: 90%;
     margin: 10px auto;
-    height: 85%;
+    height: 75%;
     border-radius: 15px;
 }
 .chat{
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .chat::-webkit-scrollbar{
     width: 5px;

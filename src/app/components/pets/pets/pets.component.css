@@ -1,3 +1,11 @@
+a{
+    text-decoration: none;
+    margin: 0%;
+    padding: 0%;
+}
+a:active{
+    color: #5E376D;
+}
 .component-container{
     background-image: linear-gradient(to right bottom, #05445E, #189AB4);
     min-height: 100vh;
@@ -7,17 +15,16 @@
 }
 .pets-container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
     column-gap: 20px;
     row-gap: 10px;
     justify-content: center;
     padding: 10px;
 }
-.pet{
+.pet a{
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: 50% 50%;
-    row-gap: 20px;
     background-image: linear-gradient(to right bottom, #D3B5E5, #BBE7FE);
     width: 95%;
     height: 400px;
@@ -25,12 +32,12 @@
     padding: 10px;
     border-radius: 10px;
 }
-.pet::-webkit-scrollbar{
+.pet a::-webkit-scrollbar{
     width: 5px;
     background-color: transparent;
     border-radius: 5px;
 }
-.pet::-webkit-scrollbar-thumb{
+.pet a::-webkit-scrollbar-thumb{
     background-color: #000;
     border-radius: 5px;
 }
@@ -63,10 +70,13 @@ ul{
     color: #05445E;
 }
 .pet-description{
+    color: #5E376D;
     grid-area: 2 / 1 / 2 / 3;
     font-size: .9rem;
     font-weight: normal;
-    margin: 0;
     width: 100%;
     text-align: left;
+    margin: 0%;
+    margin-top: 10px;
+    padding: 0%;
 }

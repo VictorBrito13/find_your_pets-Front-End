@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { PageNotFoundComponent } from './components/UI-components/page-not-found/page-not-found.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -40,6 +42,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/pets/new-pet/new-pet.module').then(m => m.NewPetModule)
       }
     ]
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 

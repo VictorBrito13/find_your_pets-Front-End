@@ -1,0 +1,19 @@
+.component-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'cascadia-code';
+    background-color: #040A18;
+}
+h1{
+    font-size: 5rem;
+    text-align: center;
+    color: #F5F5E9;
+}
+a{
+    text-align: center;
+    color: #873F49;
+    font-size: 2rem;
+}

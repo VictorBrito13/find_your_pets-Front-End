@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PetRoutingModule } from './pet-routing.module';
+import { UIComponentsModule } from '../../UI-components/ui-components.module';
 import { PetComponent } from 'src/app/components/pets/pet/pet.component';
 
 
@@ -9,6 +10,7 @@ import { PetComponent } from 'src/app/components/pets/pet/pet.component';
   declarations: [ PetComponent ],
   imports: [
     CommonModule,
+    UIComponentsModule,
     PetRoutingModule
   ]
 })

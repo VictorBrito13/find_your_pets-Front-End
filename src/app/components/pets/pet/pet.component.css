@@ -10,7 +10,7 @@ ul{
     color: #FFD4DB;
 }
 .pet-container{
-    height: 85%;
+    height: 70%;
     display: grid;
     justify-content: center;
     grid-template-columns: 50% 50%;
