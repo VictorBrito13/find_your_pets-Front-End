@@ -16,22 +16,14 @@
                 New Pet
             </a>
         </li>
-        <li>
-            <a
-            [routerLink]="['/users/chat']"
-            [routerLinkActive]="['active']"
-            class="menu-item">
-                Chat
-            </a>
-        </li>
-        <li>
+        <li *ngIf="!session">
             <a
             [routerLink]="['/users/log-in']"
             class="menu-item">
                 Log In
             </a>
         </li>
-        <li>
+        <li *ngIf="session" (click)="log_out()">
             <button class="menu-item log-out">
                 Log Out
             </button>

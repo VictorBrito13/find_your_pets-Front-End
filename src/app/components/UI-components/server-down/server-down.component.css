@@ -1,0 +1,25 @@
+.component-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'cascadia code';
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #060631;
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    color: #631616;
+}
+p{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+}

@@ -1,7 +1,8 @@
 .component-container{
     background-image: linear-gradient(to right, #EEB5EB, #C8F4F9);
     background-attachment: fixed;
-    height: 100vh;
+    min-height: 100vh;
+    position: relative;
 }
 .component-title{
     color: #05445E;
@@ -14,14 +15,15 @@ form{
     display: grid;
     grid-template-columns: repeat(3, 33%);
     grid-template-rows: repeat(5, 20%);
+    row-gap: 15px;
     grid-template-areas:
                         "first-name avatar birth"
-                        "last-name . cellphone"
+                        "last-name avatar cellphone"
                         "passwd . email"
-                        ". send ."
+                        "passwd send ."
                         "log-in-link log-in-link log-in-link";
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     width: 100%;
 }
 label{
@@ -77,4 +79,23 @@ input:not(input[type="submit"]){
 }
 .log-in-link{
     color: #3CACAE;
+}
+.warnings ul{
+    list-style: circle;
+    color: #000;
+    font-family: 'cascadia code';
+    font-size: .9rem;
+}
+.warnings p{
+    color: #f00;
+    font-size: .8rem;
+    text-decoration: overline;
+}
+.errors_container{
+    color: #f00;
+    font-size: 1.1rem;
+    font-family: 'cascadia code';
+}
+.errors_container ul{
+    list-style: circle;
 }

@@ -1,5 +1,6 @@
 <div class="component-container">
     <app-pets-menu></app-pets-menu>
+    <app-no-session *ngIf="!session"></app-no-session>
     <h1 class="component-title">Pets</h1>
         <div class="pets-container">
             <div class="pet">

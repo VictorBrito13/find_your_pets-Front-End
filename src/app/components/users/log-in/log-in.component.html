@@ -2,13 +2,43 @@
     <h1 class="component-title">Log In</h1>
 
     <div class="form-container">
-        <form>
+        <form [formGroup]="log_in" (ngSubmit)="onSubmit()">
             <label for="email">Email</label>
-            <input type="email" id="email">
+            <input type="email" id="email" formControlName="email">
+            <div class="warnings">
+                <p
+                *ngIf="log_in.get('email')?.hasError('required') && log_in.get('email')?.touched">
+                    The email is required
+                </p>
+                <p
+                *ngIf="log_in.get('email')?.hasError('pattern') && log_in.get('email')?.touched">
+                    Please write a valid email
+                </p>
+            </div>
+
             <label for="passwd">Password</label>
-            <input type="password" id="passwd">
-            <input type="submit" class="send" value="Log In">
+            <input type="password" id="passwd" formControlName="password">
+            <div class="warnings">
+                <p
+                *ngIf="log_in.get('password')?.hasError('required') && log_in.get('password')?.touched">
+                    The password is required
+                </p>
+                <ul
+                *ngIf="log_in.get('password')?.hasError('pattern') && log_in.get('password')?.touched">
+                    <p>Write a strong password</p>
+                    <li>At least 1 UpperCase letter</li>
+                    <li>At least 1 number</li>
+                    <li>At least 8 characters</li>
+                    <li>At least 1 symbol</li>
+                </ul>
+            </div>
+            <input type="submit" class="send" value="Log In" [disabled]="!log_in.valid">
             <p>Without an account yet? <a class="sign-up-link" [routerLink]="['/users/sign-up']">sign up here</a></p>
         </form>
+        <div class="errors_container">
+            <ul class="errors">
+                <li *ngFor="let error of errors">{{error}}</li>
+            </ul>
+        </div>
     </div>
 </div>

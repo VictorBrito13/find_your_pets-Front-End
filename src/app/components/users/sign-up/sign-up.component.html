@@ -1,39 +1,126 @@
 <div class="component-container">
+    <app-server-down *ngIf="server_down"></app-server-down>
     <h1 class="component-title">Sign Up</h1>
 
     <div class="form-container">
-        <form>
+        <form [formGroup]="new_user" (ngSubmit)="onSubmit()">
+            <!--* First Name -->
             <span class="first-name-area">
                 <label for="first-name">First Name</label>
-                <input type="text" id="first-name">
+                <input type="text" id="first-name" formControlName="first_name">
+                <div
+                class="warnings">
+                    <p
+                    *ngIf="new_user.get('first_name')?.hasError('required') && new_user.get('first_name')?.touched">
+                        The name is required
+                    </p>
+                    <p
+                    *ngIf="new_user.get('first_name')?.hasError('pattern') && new_user.get('first_name')?.touched">
+                        Just write Alpha characters, not numbers
+                    </p>
+                </div>
             </span>
+
+            <!--* Last Name -->
             <span class="last-name-area">
                 <label for="last-name">Last Name</label>
-                <input type="text" id="last-name">
+                <input type="text" id="last-name" formControlName="last_name">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_user.get('last_name')?.hasError('required') && new_user.get('last_name')?.touched">
+                        The last name is required
+                    </p>
+                    <p
+                    *ngIf="new_user.get('last_name')?.hasError('pattern') && new_user.get('last_name')?.touched">
+                        Just write alpha characters, not numbers
+                    </p>
+                </div>
             </span>
+
+            <!--* Password -->
             <span class="passwd-area">
                 <label for="passwd">Password</label>
-                <input type="password" id="passwd">
+                <input type="password" id="passwd" formControlName="password">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_user.get('password')?.hasError('required') && new_user.get('password')?.touched">
+                        The password is required
+                    </p>
+                    <ul
+                    *ngIf="new_user.get('password')?.hasError('pattern') && new_user.get('password')?.touched">
+                        <p>Write a strong password</p>
+                        <li>At least 1 UpperCase letter</li>
+                        <li>At least 1 number</li>
+                        <li>At least 8 characters</li>
+                        <li>At least 1 symbol</li>
+                    </ul>
+                </div>
             </span>
+
+            <!--* Avatar -->
             <span class="avatar-area">
                 <label for="avatar">Avatar</label>
-                <input type="file" id="avatar">
+                <input type="file" id="avatar" (change)="validate_extension($event)" #avatar_warnings (change)="upload_avatar($event)">
+                <div class="warnings" *ngIf="!valid_ext_avatar">
+                    <p>The extension of image must be:</p>
+                    <ul>
+                        <li>jpg</li>
+                        <li>webp</li>
+                        <li>png</li>
+                        <li>jpeg</li>
+                    </ul>
+                </div>
             </span>
+
+            <!--* Age -->
             <span class="birth-area">
                 <label for="birth">Birth</label>
-                <input type="date" id="birth">
+                <input type="date" id="birth" formControlName="age">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_user.get('age')?.hasError('required') && new_user.get('age')?.touched">
+                        The date is required
+                    </p>
+                </div>
             </span>
+
+            <!--* Cellphone -->
             <span class="cellphone-area">
                 <label for="cellphone">Cellphone</label>
-                <input type="tel" id="cellphone">
+                <input type="tel" id="cellphone" formControlName="cellphone" #cellphone_input>
+                <div class="warnings">
+                    <p
+                    *ngIf="new_user.get('cellphone')?.hasError('required') && new_user.get('cellphone')?.touched">
+                        The phone number is required
+                    </p>
+                    <p
+                    *ngIf="new_user.get('cellphone')?.hasError('pattern') && new_user.get('cellphone')?.touched">
+                        Invalid phone Number (***-***-****). Just enter numbers
+                    </p>
+                </div>
             </span>
+
+            <!--* Email -->
             <span class="email-area">
                 <label for="email">Email</label>
-                <input type="email" id="email">
+                <input type="email" id="email" formControlName="email">
+                <div class="warnings">
+                    <p *ngIf="new_user.get('email')?.hasError('required') && new_user.get('email')?.touched">The email is required</p>
+                    <p
+                    *ngIf="new_user.get('email')?.hasError('pattern') && new_user.get('email')?.touched">
+                        Please write a valid email
+                    </p>
+                </div>
             </span>
-            <input type="submit" value="Create Account" class="send-area send">
+
+            <input type="submit" value="Create Account" class="send-area send" [disabled]="new_user.invalid || !valid_ext_avatar">
 
             <p class="log-in-link-p">already an account? <a class="log-in-link" [routerLink]="['/users/log-in']">Log in here</a></p>
         </form>
+        <div class="errors_container">
+            <ul class="errors">
+                <li *ngFor="let error of errors">{{error}}</li>
+            </ul>
+        </div>
     </div>
 </div>
