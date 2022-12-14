@@ -12,7 +12,7 @@ export class SessionService {
 
   onSession(){
     this.session = localStorage.getItem('token') ? true : false
-    return this.session
+    return { session: this.session, token: localStorage.getItem('token') }
   }
 
 }

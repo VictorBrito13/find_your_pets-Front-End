@@ -139,3 +139,14 @@ textarea{
     transition: background-position .3s linear;
     background-position: 100%;
 }
+.warnings{
+    color: #f00;
+}
+ul{
+    list-style: circle;
+}
+.warnings p, .warnings ul{
+    font-weight: normal;
+    font-family: 'cascadia-code';
+    font-size: .92rem;
+}

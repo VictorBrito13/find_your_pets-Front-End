@@ -17,7 +17,7 @@ export class PetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.session = this._session.onSession()
+    this.session = this._session.onSession().session
   }
 
 }

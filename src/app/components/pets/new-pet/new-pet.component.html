@@ -4,27 +4,51 @@
     <h1 class="component-title">Add a Pet</h1>
 
     <div class="form-container">
-        <form>
+        <form [formGroup]="new_pet" (ngSubmit)="onSubmit()">
             <span class="name-area">
                 <label for="name">Name</label>
-                <input type="text" id="name">
+                <input type="text" id="name" formControlName="name">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_pet.get('name')?.hasError('required') && new_pet.get('name')?.touched">
+                        The name is required
+                    </p>
+                </div>
             </span>
 
             <span class="age-area">
                 <label for="age">Age</label>
-                <input type="number" id="age">
+                <input type="number" id="age" formControlName="age">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_pet.get('age')?.hasError('required') && new_pet.get('age')?.touched">
+                        The age is required
+                    </p>
+                    <p
+                    *ngIf="new_pet.get('age')?.hasError('pattern') && new_pet.get('age')?.touched">
+                        The age only contain numbers
+                    </p>
+                </div>
             </span>
 
             <span class="description-area">
                 <label for="description">Description</label>
-                <textarea id="description" cols="30" rows="10"></textarea>
+                <textarea id="description" cols="30" rows="10" formControlName="description"></textarea>
+                <div class="warnings">
+                    <p
+                    *ngIf="new_pet.get('description')?.hasError('required') && new_pet.get('description')?.touched">
+                        This field is required
+                    </p>
+                </div>
             </span>
 
             <span class="contact-area">
                 <label class="contact-label-area">Contacts</label>
-                <input type="email" placeholder="email" class="contact-email-area">
-                <input type="tel" placeholder="cellphone" class="contact-cellphone-area">
-                <button class="btn-add-contact" type="button">Add Contact</button>
+                <input type="email" placeholder="email" class="contact-email-area" #contact_email>
+                <input type="tel" placeholder="cellphone" class="contact-cellphone-area" #contact_cellphone>
+                <button class="btn-add-contact" type="button" (click)="addContact(contact_email, contact_cellphone)">
+                    Add Contact
+                </button>
                 <div class="contacts">
                     <div class="contact">
                         <p class="contact-way"></p>
@@ -35,25 +59,64 @@
 
             <span class="pet-type-area">
                 <label for="pet-type">Pet Type</label>
-                <input type="text" id="pet-type">
+                <input type="text" id="pet-type" formControlName="pet_type" placeholder="Dog, Cat...etc">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_pet.get('pet_type')?.hasError('required') && new_pet.get('pet_type')?.touched">
+                        The pet_type is required
+                    </p>
+                    <p
+                    *ngIf="new_pet.get('pet_type')?.hasError('pattern') && new_pet.get('pet_type')?.touched">
+                        Please just write letters
+                    </p>
+                </div>
             </span>
 
             <span class="breed-area">
                 <label for="breed">breed</label>
-                <input type="text" id="breed">
+                <input type="text" id="breed" formControlName="breed">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_pet.get('breed')?.hasError('required') && new_pet.get('breed')?.touched">
+                        The breed is required
+                    </p>
+                    <p
+                    *ngIf="new_pet.get('breed')?.hasError('pattern') && new_pet.get('breed')?.touched">
+                        Please just write letters
+                    </p>
+                </div>
             </span>
 
             <span class="reward-area">
                 <label for="reward">Reward</label>
-                <input type="number" id="reward">
+                <input type="number" id="reward" formControlName="reward">
+                <div class="warnings">
+                    <p
+                    *ngIf="new_pet.get('reward')?.hasError('required') && new_pet.get('reward')?.touched">
+                        This field is required
+                    </p>
+                    <p
+                    *ngIf="new_pet.get('reward')?.hasError('pattern') && new_pet.get('reward')?.touched">
+                        Just write numbers
+                    </p>
+                </div>
             </span>
 
             <span class="image-area">
                 <label for="image">Image</label>
-                <input type="file" id="image">
+                <input type="file" id="image" (change)="onChange($event)">
+                <div class="warnings">
+                    <ul *ngIf="!valid_ext">
+                        <p>The extension must be:</p>
+                        <li>jpg</li>
+                        <li>jpeg</li>
+                        <li>png</li>
+                        <li>webp</li>
+                    </ul>
+                </div>
             </span>
 
-            <input type="submit" class="send-area" value="Send">
+            <input type="submit" class="send-area" value="Send" >
         </form>
     </div>
 </div>

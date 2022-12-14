@@ -18,7 +18,7 @@ export class PetsMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.session = this._session.onSession()
+    this.session = this._session.onSession().session
   }
 
   log_out(): void {

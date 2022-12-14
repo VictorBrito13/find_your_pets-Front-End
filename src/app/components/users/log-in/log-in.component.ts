@@ -36,7 +36,6 @@ export class LogInComponent implements OnInit {
       },
       error: err => {
         this.errors = []
-        console.log(err)
         const error = err.error
         this.errors.push(error.error_msg)
       }

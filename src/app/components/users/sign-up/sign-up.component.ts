@@ -50,7 +50,6 @@ export class SignUpComponent implements OnInit {
         .then(res => {
           this._router.navigate(['/users/log-in'])
         })
-        .catch(err => console.log(err))
       },
       error: (err) => {
         if(err.status === 0 || err.status >= 500) this.server_down = true

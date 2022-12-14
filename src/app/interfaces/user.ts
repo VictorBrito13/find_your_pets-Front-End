@@ -26,7 +26,7 @@ export interface User{
     _id: string
     first_name: string
     last_name: string
-    avatar: string
+    avatar: string | null
     email: string
     age: Date
     cellphone: string

@@ -60,7 +60,7 @@
             <!--* Avatar -->
             <span class="avatar-area">
                 <label for="avatar">Avatar</label>
-                <input type="file" id="avatar" (change)="validate_extension($event)" #avatar_warnings (change)="upload_avatar($event)">
+                <input type="file" id="avatar" (change)="validate_extension($event)" (change)="upload_avatar($event)">
                 <div class="warnings" *ngIf="!valid_ext_avatar">
                     <p>The extension of image must be:</p>
                     <ul>
