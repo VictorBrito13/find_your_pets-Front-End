@@ -1,10 +1,12 @@
 <div class="component-container">
+    <app-pet-created (pet_created_emitter)="onClose($event)" *ngIf="pet_created"></app-pet-created>
     <app-no-session *ngIf="!session"></app-no-session>
     <app-pets-menu></app-pets-menu>
     <h1 class="component-title">Add a Pet</h1>
 
     <div class="form-container">
         <form [formGroup]="new_pet" (ngSubmit)="onSubmit()">
+            <!--* Name -->
             <span class="name-area">
                 <label for="name">Name</label>
                 <input type="text" id="name" formControlName="name">
@@ -16,6 +18,7 @@
                 </div>
             </span>
 
+            <!--* Age -->
             <span class="age-area">
                 <label for="age">Age</label>
                 <input type="number" id="age" formControlName="age">
@@ -31,6 +34,7 @@
                 </div>
             </span>
 
+            <!--* Description -->
             <span class="description-area">
                 <label for="description">Description</label>
                 <textarea id="description" cols="30" rows="10" formControlName="description"></textarea>
@@ -42,21 +46,43 @@
                 </div>
             </span>
 
+            <!--* Contact  -->
             <span class="contact-area">
                 <label class="contact-label-area">Contacts</label>
-                <input type="email" placeholder="email" class="contact-email-area" #contact_email>
-                <input type="tel" placeholder="cellphone" class="contact-cellphone-area" #contact_cellphone>
-                <button class="btn-add-contact" type="button" (click)="addContact(contact_email, contact_cellphone)">
+                <span class="contact-email-area">
+                    <input type="email" placeholder="email" #contact_email (input)="emailWarnings(contact_email.value)">
+                    <div class="warnings" *ngIf="contact_errors.email">
+                        <p>Write a valid email</p>
+                    </div>
+                </span>
+                <span class="contact-cellphone-area">
+                    <input
+                    type="tel" placeholder="cellphone" #contact_cellphone
+                    (input)="cellphoneWarnings(contact_cellphone.value)">
+                    <div class="warnings" *ngIf="contact_errors.cellphone">
+                        <p>Write a valid cellphone number</p>
+                    </div>
+                </span>
+                <button
+                class="btn-add-contact" type="button"
+                (click)="addContact(contact_email, contact_cellphone)"
+                [disabled]="contact_errors.cellphone && contact_errors.email">
                     Add Contact
                 </button>
                 <div class="contacts">
-                    <div class="contact">
-                        <p class="contact-way"></p>
-                        <p class="contact-way"></p>
+                    <div
+                    class="contact"
+                    *ngFor="let contact of contacts; index as i"
+                    (dblclick)="removeContact(i)"
+                    title="Use the double click to remove a contact">
+                        <p class="contact-way">{{contact?.cellphone}}</p>
+                        <p class="contact-way">{{contact?.email}}</p>
+                        <hr>
                     </div>
                 </div>
             </span>
 
+            <!--* Pet_type -->
             <span class="pet-type-area">
                 <label for="pet-type">Pet Type</label>
                 <input type="text" id="pet-type" formControlName="pet_type" placeholder="Dog, Cat...etc">
@@ -72,6 +98,7 @@
                 </div>
             </span>
 
+            <!--* Breed -->
             <span class="breed-area">
                 <label for="breed">breed</label>
                 <input type="text" id="breed" formControlName="breed">
@@ -87,6 +114,7 @@
                 </div>
             </span>
 
+            <!--* Reward -->
             <span class="reward-area">
                 <label for="reward">Reward</label>
                 <input type="number" id="reward" formControlName="reward">
@@ -102,6 +130,7 @@
                 </div>
             </span>
 
+            <!--* Image -->
             <span class="image-area">
                 <label for="image">Image</label>
                 <input type="file" id="image" (change)="onChange($event)">
@@ -116,7 +145,7 @@
                 </div>
             </span>
 
-            <input type="submit" class="send-area" value="Send" >
+            <input type="submit" class="send-area" value="Send" [disabled]="new_pet.invalid || !valid_ext" >
         </form>
     </div>
 </div>

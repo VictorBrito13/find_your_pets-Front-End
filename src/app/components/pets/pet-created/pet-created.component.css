@@ -1,0 +1,71 @@
+.component-container{
+    position: fixed;
+    z-index: 90;
+    height: 100vh;
+    width: 100%;
+    background-color: #7ec8e3bb;
+    display: grid;
+    place-items: center;
+}
+.component-title{
+    font-size: 2.5rem;
+    color: #050A30;
+}
+p{
+    text-align: center;
+}
+a{
+    color: #0000FF;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 5px;
+    transition: color .3s linear, background-color .3s linear;
+}
+a:hover{
+    transition: color .3s linear, background-color .3s linear;
+    background-color: #050A30;
+    color: #04F9F2;
+}
+button{
+    background-color: #f00;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 90px;
+    position: relative;
+    z-index: 20;
+    cursor: pointer;
+    overflow: hidden;
+}
+button span{
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'cascadia-code';
+    position: relative;
+    z-index: 15;
+}
+button::before, button::after{
+    content: '';
+    position: absolute;
+    z-index: 10;
+    top: 0%;
+    background-color: #ffc400;
+    height: 100%;
+    width: 50%;
+}
+button::before{
+    left: -100%;
+    transition: left .3s linear;
+}
+button::after{
+    right: -100%;
+    transition: right .3s linear;
+}
+button:hover::before{
+    left: 0%;
+    transition: left .3s linear;
+}
+button:hover::after{
+    right: 0%;
+    transition: right .3s linear;
+}

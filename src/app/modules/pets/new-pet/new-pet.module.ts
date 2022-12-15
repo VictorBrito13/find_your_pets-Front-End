@@ -4,12 +4,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { NewPetRoutingModule } from './new-pet-routing.module';
 import { UIComponentsModule } from '../../UI-components/ui-components.module';
+
+import { PetCreatedComponent } from 'src/app/components/pets/pet-created/pet-created.component';
 import { NewPetComponent } from 'src/app/components/pets/new-pet/new-pet.component';
 
 
 
 @NgModule({
-  declarations: [ NewPetComponent ],
+  declarations: [ NewPetComponent, PetCreatedComponent  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,

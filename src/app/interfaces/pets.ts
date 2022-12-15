@@ -22,5 +22,5 @@ export interface Pet_Form{
     breed: FormControl<Pet_Response["breed"]>
     pet_type: FormControl<Pet_Response["pet"]>
     reward: FormControl<Pet_Response["reward"]>
-    contacts: FormArray<FormControl<{ cellphone: string | null, email:string | null }> >
+    contacts: FormArray<FormControl<{ cellphone: string | null, email: string | null }> >
 }
