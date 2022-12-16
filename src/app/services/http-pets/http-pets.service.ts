@@ -24,4 +24,9 @@ export class HttpPetsService {
     const body = JSON.stringify(pet)
     return this.http.post<Pet_Response>(`${this.url_dev}/pet`, body, { headers })
   }
+
+  get_pets(token: string):Observable<Pet_Response[]> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('authentication', token)
+    return this.http.get<Pet_Response[]>(`${this.url_dev}`, { headers })
+  }
 }

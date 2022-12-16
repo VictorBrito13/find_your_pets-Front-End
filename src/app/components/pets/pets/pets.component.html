@@ -3,76 +3,18 @@
     <app-no-session *ngIf="!session"></app-no-session>
     <h1 class="component-title">Pets</h1>
         <div class="pets-container">
-            <div class="pet">
-                <a [routerLink]="['/pets/pet/']">
+            <div class="pet" *ngFor="let pet of pets">
+                <a [routerLink]="['/pets/pet/' + pet._id]">
                     <figure>
-                        <img src="" class="pet-img">
+                        <img src="{{url + '/avatar/' + pet.image}}" class="pet-img">
                     </figure>
                     <ul class="owner-contact">
-                        <li class="contact-info name">Name: <span>My pet</span></li>
-                        <li class="contact-info age">Age <span>6 years old</span></li>
-                        <li class="contact-info owner">Owner: <span>Maria</span></li>
+                        <li class="contact-info name">Name: <span> {{pet.name}} </span></li>
+                        <li class="contact-info age">Age: <span> {{pet.age}} </span></li>
+                        <li class="contact-info owner">Owner: <span> {{pet.owner?.first_name}} </span></li>
                     </ul>
                     <p class="pet-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro enim officiis qui reiciendis, iure consequatur aliquid quo ipsam, delectus laboriosam eaque tempore. Recusandae explicabo obcaecati, labore a eum saepe natus.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore dolore ipsum recusandae mollitia? Pariatur doloribus corporis, temporibus laudantium culpa explicabo fugit modi distinctio. Asperiores, nemo id. Aliquid, tempora. Eius!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas assumenda repellendus maxime ut sint voluptatem accusantium, iusto non officiis mollitia necessitatibus, atque eius eveniet dolorem delectus, fugiat maiores facere ex.
-                    </p>
-                </a>
-            </div>
-
-            <div class="pet">
-                <a [routerLink]="['/pets/pet/']">
-                    <figure>
-                        <img src="" class="pet-img">
-                    </figure>
-                    <ul class="owner-contact">
-                        <li class="contact-info name">Name: <span>My pet</span></li>
-                        <li class="contact-info age">Age <span>6 years old</span></li>
-                        <li class="contact-info owner">Owner: <span>Maria</span></li>
-                    </ul>
-                    <p class="pet-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro enim officiis qui reiciendis, iure consequatur aliquid quo ipsam, delectus laboriosam eaque tempore. Recusandae explicabo obcaecati, labore a eum saepe natus.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore dolore ipsum recusandae mollitia? Pariatur doloribus corporis, temporibus laudantium culpa explicabo fugit modi distinctio. Asperiores, nemo id. Aliquid, tempora. Eius!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas assumenda repellendus maxime ut sint voluptatem accusantium, iusto non officiis mollitia necessitatibus, atque eius eveniet dolorem delectus, fugiat maiores facere ex.
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur quaerat commodi earum quos amet exercitationem, dolor voluptates libero perspiciatis placeat quas culpa quo beatae doloribus magnam nobis aut quam iusto.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione debitis assumenda reiciendis culpa magni sapiente explicabo temporibus iste. Fugit nam, harum labore voluptatibus ut vitae deleniti. Ea quos corrupti aut!
-                    </p>
-                </a>
-            </div>
-
-            <div class="pet">
-                <a [routerLink]="['/pets/pet/']">
-                    <figure>
-                        <img src="" class="pet-img">
-                    </figure>
-                    <ul class="owner-contact">
-                        <li class="contact-info name">Name: <span>My pet</span></li>
-                        <li class="contact-info age">Age <span>6 years old</span></li>
-                        <li class="contact-info owner">Owner: <span>Maria</span></li>
-                    </ul>
-                    <p class="pet-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro enim officiis qui reiciendis, iure consequatur aliquid quo ipsam, delectus laboriosam eaque tempore. Recusandae explicabo obcaecati, labore a eum saepe natus.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore dolore ipsum recusandae mollitia? Pariatur doloribus corporis, temporibus laudantium culpa explicabo fugit modi distinctio. Asperiores, nemo id. Aliquid, tempora. Eius!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas assumenda repellendus maxime ut sint voluptatem accusantium, iusto non officiis mollitia necessitatibus, atque eius eveniet dolorem delectus, fugiat maiores facere ex.
-                    </p>
-                </a>
-            </div>
-
-            <div class="pet">
-                <a [routerLink]="['/pets/pet/']">
-                    <figure>
-                        <img src="" class="pet-img">
-                    </figure>
-                    <ul class="owner-contact">
-                        <li class="contact-info name">Name: <span>My pet</span></li>
-                        <li class="contact-info age">Age <span>6 years old</span></li>
-                        <li class="contact-info owner">Owner: <span>Maria</span></li>
-                    </ul>
-                    <p class="pet-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro enim officiis qui reiciendis, iure consequatur aliquid quo ipsam, delectus laboriosam eaque tempore. Recusandae explicabo obcaecati, labore a eum saepe natus.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore dolore ipsum recusandae mollitia? Pariatur doloribus corporis, temporibus laudantium culpa explicabo fugit modi distinctio. Asperiores, nemo id. Aliquid, tempora. Eius!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas assumenda repellendus maxime ut sint voluptatem accusantium, iusto non officiis mollitia necessitatibus, atque eius eveniet dolorem delectus, fugiat maiores facere ex.
+                        {{pet.description}}
                     </p>
                 </a>
             </div>

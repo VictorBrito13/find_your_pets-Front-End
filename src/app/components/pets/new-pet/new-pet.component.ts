@@ -35,7 +35,7 @@ export class NewPetComponent implements OnInit {
     this.pet_created = false
     this.new_pet = new FormGroup<Pet_Form>({
       name: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-      age: new FormControl(new Date(), { nonNullable: true, validators: [Validators.required, Validators.pattern(/^[\d]*$/)] }),
+      age: new FormControl(0, { nonNullable: true, validators: [Validators.required, Validators.pattern(/^[\d]*$/)] }),
       description: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
       breed: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.pattern(/^[a-z ]+$/i)] }),
       pet_type: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.pattern(/^[a-z ]+$/i)] }),
@@ -45,7 +45,6 @@ export class NewPetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.new_pet.value.contacts)
     const valid_session = this._session.onSession()
     this.session = valid_session.session
     this.token = valid_session.token || 'No token'
