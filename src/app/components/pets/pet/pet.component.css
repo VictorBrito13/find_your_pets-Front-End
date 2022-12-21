@@ -4,7 +4,7 @@ ul{
 }
 .component-container{
     background-image: linear-gradient(to right bottom, #05445E, #189AB4);
-    height: 100vh;
+    min-height: 100vh;
 }
 .component-title{
     color: #FFD4DB;
@@ -14,7 +14,6 @@ ul{
     display: grid;
     justify-content: center;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 60% 40%;
     row-gap: 10px;
     column-gap: 10px;
     padding: 10px;
@@ -22,7 +21,7 @@ ul{
 figure{
     display: flex;
     margin: 0;
-    height: 100%; /*310px*/
+    min-height: 310px; /*310px*/
     width: 100%; /*500px*/
 }
 .pet-img{
@@ -42,6 +41,16 @@ figure{
 }
 .pet-info-contacts{
     list-style: inside;
+    height: 150px;
+    overflow: auto;
+}
+.pet-info-contacts::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 15px;
+    background-color: #C26DBC;
+}
+.pet-info-contacts::-webkit-scrollbar-thumb{
+    background-color: #05445E;
 }
 .pet-description{
     font-size: 1rem;

@@ -1,28 +1,26 @@
 <div class="component-container">
     <app-no-session *ngIf="!session"></app-no-session>
     <app-pets-menu></app-pets-menu>
-    <h1 class="component-title">Pet Name</h1>
+    <h1 class="component-title">{{pet.name}}</h1>
     <div class="pet-container">
         <figure>
-            <img src="" class="pet-img" alt="pet-name">
+            <img src="{{url + '/avatar/' + pet.image}}" class="pet-img" alt="pet-name">
         </figure>
         <ul class="pet-info-container">
-            <li class="pet-info">reward <span>{{ 500 | currency }}</span></li>
-            <li class="pet-info">Age: <span>10</span></li>
-            <li class="pet-info">Breed: <span>No Breed</span></li>
-            <li class="pet-info">Owner: <span>Maria</span></li>
+            <li class="pet-info">reward <span>{{ pet.reward | currency }}</span></li>
+            <li class="pet-info">Age: <span>{{pet.age}}</span></li>
+            <li class="pet-info">Breed: <span>{{pet.breed}}</span></li>
+            <li class="pet-info">Owner: <span>{{pet.owner.first_name + ' ' + pet.owner.last_name}}</span></li>
             <li class="pet-info">
                 Contacts:
                 <ul class="pet-info-contacts">
-                    <li>Email: <span>maria@maria.com</span></li>
-                    <li>Cellphone: <span>7778953698</span></li>
+                    <li *ngFor="let contact of pet.contacts">Email: <span>{{contact?.email}}</span></li>
+                    <li *ngFor="let contact of pet.contacts">Cellhone: <span>{{contact?.cellphone}}</span></li>
                 </ul>
             </li>
         </ul>
         <p class="pet-description">
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quis in repudiandae animi amet nemo voluptate corrupti velit obcaecati, enim similique unde quia, exercitationem beatae! Adipisci sit magnam quo illum?
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quis in repudiandae animi amet nemo voluptate corrupti velit obcaecati, enim similique unde quia, exercitationem beatae! Adipisci sit magnam quo illum?
-            lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quis in repudiandae animi amet nemo voluptate corrupti velit obcaecati, enim similique unde quia, exercitationem beatae! Adipisci sit magnam quo illum?
+            {{pet.description}}
         </p>
     </div>
 </div>
