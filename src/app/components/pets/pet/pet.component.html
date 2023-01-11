@@ -14,8 +14,10 @@
             <li class="pet-info">
                 Contacts:
                 <ul class="pet-info-contacts">
-                    <li *ngFor="let contact of pet.contacts">Email: <span>{{contact?.email}}</span></li>
-                    <li *ngFor="let contact of pet.contacts">Cellhone: <span>{{contact?.cellphone}}</span></li>
+                    <span *ngFor="let contact of pet.contacts">
+                        <li class="pet-info" *ngIf="contact?.email">Email: <span>{{contact?.email}}</span></li>
+                        <li class="pet-info" *ngIf="contact?.cellphone">Cellhone: <span>{{contact?.cellphone}}</span></li>
+                    </span>
                 </ul>
             </li>
         </ul>

@@ -39,7 +39,7 @@ export class PetComponent implements OnInit {
   getPet(pet_id: string): void {
     this._http.get_pet(this.token, pet_id).subscribe({
       next: res => {
-        console.log(res)
+        console.log(res.contacts)
         this.pet = res
       },
       error: err => {

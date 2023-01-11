@@ -1,0 +1,71 @@
+.component-container{
+    background-image: linear-gradient(to right, #EEB5EB, #C8F4F9);
+    background-attachment: fixed;
+    font-family: 'cascadia code';
+}
+.pets{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 15px;
+}
+.pet-container{
+    width: 100%;
+    background-color: #ffffff41;
+    height: 400px;
+    border-radius: 10px;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    color: #800080;
+    text-decoration: none;
+}
+.pet-container::-webkit-scrollbar{
+    width: 5px;
+    background-color: #067885;
+}
+.pet-container::-webkit-scrollbar-thumb{
+    background-color: #EEB5EB;
+}
+.pet-img{
+    object-fit: cover;
+    border-radius: 10px;
+    width: 300px;
+    min-height: 200px;
+}
+.pet-name{
+    text-align: center;
+    color: #067885;
+}
+.pet-reward, .pet-description{
+    font-size: 1rem;
+}
+.pet-description{
+    text-decoration: underline;
+    line-height: 30px;
+}
+.pet-actions{
+    /* align-self: center; */
+    position: sticky;
+    top: 10%;
+    height: fit-content;
+}
+.pet-container .delete, .update{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: fit-content;
+}
+.delete{
+    background-color: #f00;
+}
+.update{
+    background-color: #1ec01e;
+}

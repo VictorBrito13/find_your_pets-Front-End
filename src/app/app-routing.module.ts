@@ -40,6 +40,14 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./modules/pets/new-pet/new-pet.module').then(m => m.NewPetModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./modules/pets/my-pets/my-pets.module').then(m => m.MyPetsModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./modules/pets/update-pet/update-pet.module').then(m => m.UpdatePetModule)
       }
     ]
   },

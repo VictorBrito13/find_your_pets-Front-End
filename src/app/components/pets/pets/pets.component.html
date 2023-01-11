@@ -11,7 +11,7 @@
                     <ul class="owner-contact">
                         <li class="contact-info name">Name: <span> {{pet.name}} </span></li>
                         <li class="contact-info age">Age: <span> {{pet.age}} </span></li>
-                        <li class="contact-info owner">Owner: <span> {{pet.owner?.first_name}} </span></li>
+                        <li class="contact-info owner">Owner: <span> {{pet.owner?.first_name + ' ' + pet.owner?.last_name}} </span></li>
                     </ul>
                     <p class="pet-description">
                         {{pet.description}}

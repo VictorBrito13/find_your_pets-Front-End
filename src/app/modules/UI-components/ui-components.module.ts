@@ -6,13 +6,14 @@ import { PetsMenuComponent } from 'src/app/components/UI-components/pets-menu/me
 import { PageNotFoundComponent } from 'src/app/components/UI-components/page-not-found/page-not-found.component';
 import { NoSessionComponent } from 'src/app/components/UI-components/no-session/no-session.component';
 import { ServerDownComponent } from 'src/app/components/UI-components/server-down/server-down.component';
+import { PetCreatedComponent } from 'src/app/components/UI-components/pet-created/pet-created.component';
 
 @NgModule({
-  declarations: [ PetsMenuComponent, PageNotFoundComponent, NoSessionComponent, ServerDownComponent ],
+  declarations: [ PetsMenuComponent, PageNotFoundComponent, NoSessionComponent, ServerDownComponent, PetCreatedComponent ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [ PetsMenuComponent, NoSessionComponent, ServerDownComponent ]
+  exports: [ PetsMenuComponent, NoSessionComponent, ServerDownComponent, PetCreatedComponent ]
 })
 export class UIComponentsModule { }

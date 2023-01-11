@@ -1,0 +1,21 @@
+<div class="component-container">
+    <h1 class="component-title">My pets section</h1>
+    <div class="pets">
+        <div class="pet" *ngFor="let pet of my_pets; trackBy: trackPets">
+            <div class="pet-container">
+                <a class="pet__container" [routerLink]="['/pets/pet/' + pet._id]">
+                    <div class="pet-info">
+                        <img class="pet-img" src="{{url_pets + '/avatar/' + pet.image}}" alt="{{pet.name}}">
+                        <h2 class="pet-name">{{pet.name}}</h2>
+                        <p class="pet-reward">reward: {{pet.reward}}</p>
+                        <p class="pet-description">{{pet.description}}</p>
+                    </div>
+                </a>
+                <div class="pet-actions">
+                    <button type="button" class="delete" (click)="deletePet(pet._id)">Delete</button>
+                    <a [routerLink]="['/pets/update-pet/' + pet._id]" class="update">Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
