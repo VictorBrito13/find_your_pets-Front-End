@@ -23,6 +23,13 @@
                 Log In
             </a>
         </li>
+        <li *ngIf="session">
+            <a
+            [routerLink]="['/pets/my-pets']"
+            class="menu-item">
+                My Pets
+            </a>
+        </li>
         <li *ngIf="session" (click)="log_out()">
             <button class="menu-item log-out">
                 Log Out

@@ -1,5 +1,5 @@
 <div class="component-container">
-    <app-pet-created (pet_created_emitter)="onClose($event)" *ngIf="pet_created"></app-pet-created>
+    <app-pet-created [pet_id]="pet_id" (pet_created_emitter)="onClose($event)" *ngIf="pet_created"></app-pet-created>
     <app-no-session *ngIf="!session"></app-no-session>
     <app-pets-menu></app-pets-menu>
     <h1 class="component-title">Add a Pet</h1>

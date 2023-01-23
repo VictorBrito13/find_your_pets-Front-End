@@ -1,4 +1,5 @@
 <div class="component-container">
+    <app-pets-menu></app-pets-menu>
     <h1 class="component-title">My pets section</h1>
     <div class="pets">
         <div class="pet" *ngFor="let pet of my_pets; trackBy: trackPets">
@@ -7,7 +8,7 @@
                     <div class="pet-info">
                         <img class="pet-img" src="{{url_pets + '/avatar/' + pet.image}}" alt="{{pet.name}}">
                         <h2 class="pet-name">{{pet.name}}</h2>
-                        <p class="pet-reward">reward: {{pet.reward}}</p>
+                        <p class="pet-reward">reward: {{pet.reward | currency }}</p>
                         <p class="pet-description">{{pet.description}}</p>
                     </div>
                 </a>

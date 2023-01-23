@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pet-created',
@@ -8,8 +8,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class PetCreatedComponent implements OnInit {
 
   @Output() pet_created_emitter = new EventEmitter<boolean>()
+  @Input() pet_id:string
 
   constructor() {
+    this.pet_id = ''
   }
 
   ngOnInit(): void {

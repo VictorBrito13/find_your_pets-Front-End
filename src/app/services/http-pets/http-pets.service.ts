@@ -40,4 +40,9 @@ export class HttpPetsService {
     return this.http.delete<Pet_Response>(`${this.url_dev}/pet/${pet_id}`, { headers })
   }
 
+  update_pet(pet:Partial<Pet_Response>, pet_id:string, token:string):Observable<Pet_Response>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('authentication', token)
+    return this.http.put<Pet_Response>(`${this.url_dev}/pet/${pet_id}`, pet, { headers })
+  }
+
 }

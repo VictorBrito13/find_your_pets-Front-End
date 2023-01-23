@@ -1,5 +1,5 @@
 <div class="component-container">
     <h1 class="component-title">The pet has been created successfully</h1>
-    <p><a [routerLink]="['/pets/pet']">You can see it here</a></p>
+    <p><a [routerLink]="['/pets/pet/' + pet_id]">You can see it here</a></p>
     <button type="button" (click)="onEmitClose()"><span>Close</span></button>
 </div>

@@ -5,6 +5,8 @@
 }
 ul{
     display: flex;
+    gap: 15px;
+    padding: 10px;
     justify-content: space-around;
     align-items: center;
     background-image: linear-gradient(to right top, #0c1872, #0000FF);
@@ -12,9 +14,7 @@ ul{
     height: 50px;
     width: fit-content;
     min-width: 300px;
-    max-width: 40%;
     border-radius: 5px;
-    padding: 0px;
 }
 .menu-item{
     color: #050A30;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { HttpPetsService } from 'src/app/services/http-pets/http-pets.service'
 import { UploadFileService } from 'src/app/services/upload-file/upload-file.service';
@@ -7,11 +8,11 @@ import { SessionService } from 'src/app/services/session/session.service';
 import { Pet_Form, Pet_Response } from 'src/app/interfaces/pets';
 
 @Component({
-  selector: 'app-new-pet',
-  templateUrl: './new-pet.component.html',
-  styleUrls: ['./new-pet.component.css']
+  selector: 'app-update-pet',
+  templateUrl: '../new-pet/new-pet.component.html',
+  styleUrls: ['./update-pet.component.css', '../new-pet/new-pet.component.css']
 })
-export class NewPetComponent implements OnInit {
+export class UpdatePetComponent implements OnInit {
   public update: boolean
   public session: boolean
   private token:string
@@ -20,15 +21,17 @@ export class NewPetComponent implements OnInit {
   public contacts: Pet_Response["contacts"]
   public contact_errors: { email: boolean, cellphone: boolean }
   public pet_created: boolean
-  public pet_id: string
+  public pet_id:string
+  public pet:Pet_Response
   public new_pet: FormGroup<Pet_Form>
 
   constructor(
     private _session: SessionService,
     private _http: HttpPetsService,
-    private _upload_file: UploadFileService
+    private _upload_file: UploadFileService,
+    private _activatedRoute: ActivatedRoute
   ) {
-    this.update = false
+    this.update = true
     this.session = false
     this.token = ''
     this.files_to_upload = []
@@ -53,14 +56,19 @@ export class NewPetComponent implements OnInit {
     this.session = valid_session.session
     this.token = valid_session.token || 'No token'
     this.contacts = <Pet_Response["contacts"]> this.new_pet.value.contacts
+    this._activatedRoute.params.subscribe({
+      next: params => {
+        this.pet_id = params['id']
+        this.getPet(this.pet_id)
+      }
+    })
   }
 
-  onSubmit(): void {
+  onSubmit(){
     this.new_pet.value.contacts?.shift()
-    this._http.new_pet(this.new_pet.value, this.token).subscribe({
+    this._http.update_pet(this.new_pet.value, this.pet_id, this.token).subscribe({
       next: res => {
         this.pet_created = true
-        this.new_pet.reset()
         this.contacts = []
         this._upload_file.upload_image(`${this._http.get_url_dev()}/avatar/${res._id}`, this.files_to_upload, 'avatar')
         .then((res:any) => {
@@ -72,6 +80,20 @@ export class NewPetComponent implements OnInit {
         console.log(err)
       }
     })
+  }
+
+  getPet(id:string){
+    this._http.get_pet(this.token, id).subscribe(
+      {
+        next: res => {
+          this.pet = res
+          this.new_pet.setValue({ name: res.name, age: res.age, description: res.description, breed: res.breed, pet_type: res.pet, reward: res.reward, contacts: res.contacts })
+        },
+        error: err => {
+          console.log(err)
+        }
+      }
+    )
   }
 
   checkExt(file: string): boolean {
