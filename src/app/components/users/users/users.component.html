@@ -1,0 +1,11 @@
+<div class="component-container">
+    <app-pets-menu></app-pets-menu>
+    <div class="users-container">
+        <div class="user-card" *ngFor="let user of users; trakcBy: usersTrack">
+            <a [routerLink]="['/chat/' + user._id]" class="user-chat"> <!--! Here is the link to the chat -->
+                <img src="{{url}}/avatar/{{user.avatar}}" alt="{{user.first_name + user.last_name}}" class="user-avatar">
+                <h3 class="user-name">{{user.first_name + ' ' + user.last_name}}</h3>
+            </a>
+        </div>
+    </div>
+</div>

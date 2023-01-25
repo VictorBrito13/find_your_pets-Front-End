@@ -36,4 +36,9 @@ export class HttpUsersService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json').set('authentication', token)
     return this.http.get<Pet_Response[]>(`${this.url_dev}/user/my_pets`, { headers })
   }
+
+  get_users(token: string): Observable<User[]>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('authentication', token)
+    return this.http.get<User[]>(`${this.url_dev}`, { headers })
+  }
 }
